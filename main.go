@@ -19,20 +19,20 @@ type scenario struct {
 	stopWhenClientCancel bool
 }
 
-var scenarios = []scenario{
-	{
+var scenarios = map[int]scenario{
+	1: {
 		name:                 "server task duration > client timeout",
 		serverTaskDuration:   5 * time.Second,
 		clientTimeout:        10 * time.Second,
 		stopWhenClientCancel: false,
 	},
-	{
+	2: {
 		name:                 "server task duration < client timeout, not stop when client cancel",
 		serverTaskDuration:   5 * time.Second,
 		clientTimeout:        2 * time.Second,
 		stopWhenClientCancel: false,
 	},
-	{
+	3: {
 		name:                 "server task duration > client timeout, stop when client cancel",
 		serverTaskDuration:   5 * time.Second,
 		clientTimeout:        2 * time.Second,
